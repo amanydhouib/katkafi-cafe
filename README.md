@@ -4,7 +4,7 @@ An explorable 3D cat café for **Katkafi**: rescue, care, coffee and matchmaking
 Visitors enter through a welcome screen, drag to look around the café, tap hotspots to open
 sections, and tap cats to make them meow.
 
-Live preview: https://claude.ai/artifact/LD6L1zLtoxFpHddFSeaRRm
+Live site: https://amanydhouib.github.io/katkafi-cafe/ (GitHub Pages, updates on every push to `main`)
 
 ## Run it locally
 
