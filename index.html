@@ -10,21 +10,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #2a1a14;        /* espresso */
-    --cream: #f6ecdc;
-    --tan: #d9b48f;
-    --blue: #2f4fa8;      /* paw blue */
-    --terra: #b9431c;     /* terracotta */
-    --ink: #2a1a14;
-    --panel: #fbf4e8;
-    --line: #eadcc6;
-    --muted: #7d6a5d;
+    --bg: #0f1814;        /* midnight emerald */
+    --cream: #f2ead8;     /* ivory */
+    --tan: #c9a86a;       /* antique brass */
+    --blue: #1f4a3c;      /* bottle green */
+    --terra: #6e1f2b;     /* oxblood */
+    --ink: #141a17;
+    --panel: #f4eee2;
+    --line: #e2d8c4;
+    --muted: #6d675c;
   }
-  /* The café is a warm evening scene, so dark mode keeps the same palette. */
+  /* The café is a moody evening scene, so dark mode keeps the same palette. */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --bg: #2a1a14; --cream: #f6ecdc; --panel: #fbf4e8; --ink: #2a1a14; }
+    :root:not([data-theme="light"]) { --bg: #0f1814; --cream: #f2ead8; --panel: #f4eee2; --ink: #141a17; }
   }
-  :root[data-theme="dark"] { --bg: #2a1a14; --cream: #f6ecdc; --panel: #fbf4e8; --ink: #2a1a14; }
+  :root[data-theme="dark"] { --bg: #0f1814; --cream: #f2ead8; --panel: #f4eee2; --ink: #141a17; }
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; }
   body { background: var(--bg); color: var(--cream); font-family: "DM Sans", system-ui, sans-serif; overflow: hidden; -webkit-font-smoothing: antialiased; }
@@ -40,11 +40,11 @@
   .top > * { pointer-events: auto; }
   .logo { display: flex; align-items: center; gap: 10px; font-family: Fraunces, serif; font-weight: 600; font-size: 26px; letter-spacing: -.01em; text-shadow: 0 2px 10px rgba(0,0,0,.35); }
   .logo img { width: 42px; height: 42px; background: var(--cream); border-radius: 12px; padding: 4px; }
-  .join { background: var(--blue); color: var(--cream); border: 0; border-radius: 999px; padding: 11px 20px; font-weight: 600; font-size: 14px; cursor: pointer; box-shadow: 0 3px 0 #1d3373; transition: transform .15s, box-shadow .15s; }
-  .join:hover { transform: translateY(-1px); box-shadow: 0 4px 0 #1d3373; }
-  .join:active { transform: translateY(2px); box-shadow: 0 1px 0 #1d3373; }
+  .join { background: var(--blue); color: var(--cream); border: 1px solid var(--tan); border-radius: 999px; padding: 11px 20px; font-weight: 600; font-size: 14px; cursor: pointer; box-shadow: 0 3px 0 #0f2a21; transition: transform .15s, box-shadow .15s; }
+  .join:hover { transform: translateY(-1px); box-shadow: 0 4px 0 #0f2a21; }
+  .join:active { transform: translateY(2px); box-shadow: 0 1px 0 #0f2a21; }
 
-  .spots-nav, .hint { background: rgba(42,26,20,.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 10px 14px; }
+  .spots-nav, .hint { background: rgba(15,24,20,.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 10px 14px; }
   .spots-nav { position: fixed; left: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 4px; z-index: 3; }
   .spots-nav button { background: none; border: 0; color: var(--cream); font-size: 14px; text-align: left; opacity: .8; cursor: pointer; padding: 3px 0; transition: opacity .2s, transform .2s; }
   .spots-nav button:hover, .spots-nav button:focus-visible { opacity: 1; transform: translateX(4px); }
@@ -56,9 +56,9 @@
   #hotspots { position: fixed; inset: 0; pointer-events: none; transition: opacity .4s; z-index: 2; }
   .hotspot { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 0; cursor: pointer; color: var(--cream); pointer-events: auto; will-change: transform; }
   .hotspot[hidden] { display: none; }
-  .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--terra); border: 3px solid var(--cream); position: relative; flex: none; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
-  .dot::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--cream); animation: pulse 2s ease-out infinite; }
-  .label { font-size: 12px; font-weight: 600; background: rgba(42,26,20,.82); padding: 6px 10px; border-radius: 999px; white-space: nowrap; opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; }
+  .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 3px solid var(--tan); position: relative; flex: none; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+  .dot::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--tan); animation: pulse 2s ease-out infinite; }
+  .label { font-size: 12px; font-weight: 600; background: rgba(15,24,20,.85); padding: 6px 10px; border-radius: 999px; white-space: nowrap; opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; }
   .hotspot:hover .label, .hotspot:focus-visible .label { opacity: 1; transform: none; }
   @media (hover: none) { .label { opacity: 1; transform: none; } }
 
@@ -75,21 +75,21 @@
   #panel { position: fixed; top: 12px; right: 12px; bottom: 12px; width: min(430px, calc(100% - 24px)); background: var(--panel); color: var(--ink); border-radius: 22px; padding: 22px 28px 28px; overflow-y: auto; transform: translateX(calc(100% + 24px)); transition: transform .6s cubic-bezier(.2,.8,.2,1); box-shadow: 0 24px 70px rgba(0,0,0,.45); z-index: 4; }
   #panel.open { transform: none; }
   .back { background: var(--ink); color: var(--cream); border: 0; border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer; }
-  .back:hover { background: #4a2f24; }
-  .kicker { font-size: 12px; font-weight: 700; color: var(--terra); letter-spacing: .12em; text-transform: uppercase; margin: 28px 0 10px; }
+  .back:hover { background: var(--blue); }
+  .kicker { font-size: 12px; font-weight: 700; color: #8a6d36; letter-spacing: .12em; text-transform: uppercase; margin: 28px 0 10px; }
   #panel h2 { font-family: Fraunces, serif; font-weight: 600; font-size: 38px; line-height: 1.05; margin: 0 0 14px; letter-spacing: -.015em; }
-  #panel h2 em { color: var(--blue); font-weight: 500; }
-  #panel p.body { line-height: 1.6; color: #4d3d33; font-size: 15px; margin: 0; }
+  #panel h2 em { color: var(--terra); font-weight: 500; }
+  #panel p.body { line-height: 1.6; color: #3d3a33; font-size: 15px; margin: 0; }
   #panel ul { list-style: none; padding: 0; margin: 22px 0 24px; border-top: 1px solid var(--line); }
   #panel li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
   #panel li span:first-child { font-weight: 600; }
   #panel li span:last-child { color: var(--muted); text-align: right; }
-  .cta { display: inline-block; background: var(--terra); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 20px; border-radius: 999px; box-shadow: 0 3px 0 #7d2b10; }
+  .cta { display: inline-block; background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 20px; border-radius: 999px; box-shadow: 0 3px 0 #0f2a21; }
   .cta:hover { filter: brightness(1.06); }
   .note { font-size: 12px; color: var(--muted); margin: 14px 0 0; }
 
   /* ---------- Gate ---------- */
-  #gate { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16px; background: rgba(42,26,20,.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: opacity 1s ease, visibility 1s; }
+  #gate { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16px; background: rgba(15,24,20,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: opacity 1s ease, visibility 1s; }
   body.entered #gate { opacity: 0; visibility: hidden; }
   .mascot { width: 150px; height: 150px; background: var(--cream); border-radius: 40px; padding: 14px; margin-bottom: 22px; animation: peek 3.2s ease-in-out infinite; }
   .welcome { font-family: Fraunces, serif; font-style: italic; font-size: clamp(24px, 4vw, 34px); margin: 0; opacity: .85; }
@@ -105,6 +105,19 @@
 
   .demo-note { position: fixed; right: 16px; bottom: 12px; margin: 0; font-size: 11px; opacity: .55; z-index: 11; pointer-events: none; }
   body.focused .demo-note { opacity: 0; }
+
+  /* ---------- Teaser lightbox ---------- */
+  #teaser { position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(8,12,10,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility .45s; }
+  #teaser.open { opacity: 1; visibility: visible; }
+  .tz-card { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; transform: scale(.96); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  #teaser.open .tz-card { transform: none; }
+  #teaser video { display: block; height: min(80vh, 760px); max-width: calc(100vw - 32px); aspect-ratio: 9 / 16; object-fit: cover; background: #000; border: 1px solid var(--tan); border-radius: 14px; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
+  .tz-title { margin: 0; font-family: Fraunces, serif; font-style: italic; font-size: 20px; color: var(--cream); }
+  .tz-title b { font-style: normal; font-family: "DM Sans", sans-serif; font-size: 11px; letter-spacing: .2em; color: var(--tan); margin-right: 10px; vertical-align: 3px; }
+  .tz-close { position: absolute; top: -6px; right: -54px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--tan); background: rgba(15,24,20,.7); color: var(--cream); font-size: 20px; line-height: 1; cursor: pointer; }
+  .tz-close:hover, .tz-close:focus-visible { background: var(--blue); }
+  @media (max-width: 820px) { .tz-close { right: 6px; top: 6px; z-index: 1; } #teaser video { height: min(74vh, 720px); } }
+  .hotspot.teaser-spot .dot { background: var(--terra); }
 
   @keyframes pulse { 0% { transform: scale(.8); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }
   @keyframes peek { 0%, 100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(-6px); } }
@@ -160,6 +173,14 @@
     <button class="enter" hidden>Click to enter</button>
   </section>
 
+  <div id="teaser" role="dialog" aria-modal="true" aria-label="Katkafi teaser video" aria-hidden="true">
+    <div class="tz-card">
+      <video controls playsinline preload="none" poster="katkafi-teaser-poster.jpg" src="katkafi-teaser.mp4"></video>
+      <p class="tz-title"><b>NOW SHOWING</b>A stray finds its place</p>
+      <button class="tz-close" aria-label="Close the video">×</button>
+    </div>
+  </div>
+
   <p class="demo-note">Concept demo · sample content</p>
 
 <script type="module">
@@ -208,15 +229,18 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.0;
+renderer.toneMappingExposure = 1.12;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#2a1a14');
+scene.background = new THREE.Color('#0f1814');
 const camera = new THREE.PerspectiveCamera(72, 1, 0.05, 60);
 camera.rotation.order = 'YXZ';
 
-const C = { espresso: '#2a1a14', cream: '#f6ecdc', tan: '#d9b48f', blue: '#2f4fa8', terra: '#b9431c',
-  wall: '#ead6b6', backWall: '#3a58a6', wood: '#9a6544', woodDark: '#6b4430', leaf: '#4f8f57', leaf2: '#3a7547', steel: '#c9ccd1' };
+// royal palette: midnight emerald, oxblood, antique brass and ivory
+const C = { espresso: '#1a1817', cream: '#f2ead8', tan: '#c9a86a', blue: '#1f4a3c', terra: '#6e1f2b',
+  wall: '#e8dfcd', backWall: '#5e1d2a', wood: '#6e4a33', woodDark: '#2e211b', leaf: '#4f8a5a', leaf2: '#2f6544', steel: '#c9ccd1',
+  brass: '#b8955a' };
+const brassMat = (o = {}) => new THREE.MeshStandardMaterial({ color: '#c9a35e', metalness: .85, roughness: .32, ...o });
 
 const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness: .78, metalness: 0, ...o });
 function add(geo, m, x, y, z, parent = scene) {
@@ -264,20 +288,20 @@ const texLoader = new THREE.TextureLoader(manager);
 
 /* ================= Room ================= */
 const floorTex = canvasTex(512, 512, (g, w, h) => {
-  g.fillStyle = '#b8875d'; g.fillRect(0, 0, w, h);
-  const rows = 8, rh = h / rows;
-  for (let r = 0; r < rows; r++) {
-    let x = -(r % 3) * 70;
-    while (x < w) {
-      const len = 160 + Math.random() * 120;
-      g.fillStyle = `hsl(27, 42%, ${50 + Math.random() * 9}%)`;
-      g.fillRect(x, r * rh, len, rh);
-      g.strokeStyle = 'rgba(60,35,20,.4)'; g.lineWidth = 2; g.strokeRect(x, r * rh, len, rh);
-      x += len;
+  const n = 4, s = w / n; // marble checkerboard: ivory and emerald-black
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+    const dark = (r + c) % 2;
+    g.fillStyle = dark ? '#231c1a' : '#e8e1d2'; g.fillRect(c * s, r * s, s, s);
+    g.strokeStyle = dark ? 'rgba(201,168,106,.12)' : 'rgba(80,90,80,.14)'; g.lineWidth = 1.2;
+    for (let k = 0; k < 3; k++) { // soft veins
+      g.beginPath(); let x = c * s + Math.random() * s, y = r * s;
+      g.moveTo(x, y); while (y < (r + 1) * s) { x += (Math.random() - .5) * 18; y += 10; g.lineTo(x, y); } g.stroke();
     }
   }
+  g.strokeStyle = 'rgba(184,149,90,.5)'; g.lineWidth = 2; // thin brass inlay between the tiles
+  for (let i = 0; i <= n; i++) { g.beginPath(); g.moveTo(i * s, 0); g.lineTo(i * s, h); g.moveTo(0, i * s); g.lineTo(w, i * s); g.stroke(); }
 });
-floorTex.wrapS = floorTex.wrapT = THREE.RepeatWrapping; floorTex.repeat.set(2.5, 2.5);
+floorTex.wrapS = floorTex.wrapT = THREE.RepeatWrapping; floorTex.repeat.set(2.5, 2.5); floorTex.anisotropy = 8;
 box(10, .1, 10, mat('#ffffff', { map: floorTex }), 0, -.05, 0);
 
 const sideWall = mat(C.wall);
@@ -285,11 +309,11 @@ box(10, 4, .1, mat(C.backWall), 0, 2, -5.05);
 box(.1, 4, 10, sideWall, -5.05, 2, 0);
 box(.1, 4, 10, sideWall, 5.05, 2, 0);
 box(10, 4, .1, sideWall, 0, 2, 5.05);
-box(10, .1, 10, mat('#f3e6d0'), 0, 4.05, 0);
+box(10, .1, 10, mat('#efe8da'), 0, 4.05, 0);
 // wooden wainscot + cream rail
 const wain = mat(C.woodDark);
 box(10, 1.05, .04, wain, 0, .525, -4.98); box(.04, 1.05, 10, wain, -4.98, .525, 0); box(.04, 1.05, 10, wain, 4.98, .525, 0); box(10, 1.05, .04, wain, 0, .525, 4.98);
-const rail = mat(C.cream);
+const rail = brassMat();
 box(10, .05, .07, rail, 0, 1.07, -4.96); box(.07, .05, 10, rail, -4.96, 1.07, 0); box(.07, .05, 10, rail, 4.96, 1.07, 0);
 
 // window with sill
@@ -303,7 +327,7 @@ box(2.6, .07, .3, frame, -1.6, 1.42, -4.85);
 
 // rug
 add(new THREE.CylinderGeometry(1.9, 1.9, .02, 64), C.terra, 0, .01, -1);
-add(new THREE.CylinderGeometry(1.65, 1.65, .022, 64), C.tan, 0, .012, -1);
+add(new THREE.CylinderGeometry(1.65, 1.65, .022, 64), C.brass, 0, .012, -1);
 add(new THREE.CylinderGeometry(1.4, 1.4, .024, 64), C.cream, 0, .014, -1);
 
 /* ---------- Café table ---------- */
@@ -325,7 +349,7 @@ for (const [x, z] of [[-.7, .95], [.6, .95], [0, -1.05]]) {
   add(new THREE.TorusGeometry(.16, .015, 6, 24), C.espresso, x, .2, z, table).rotation.x = Math.PI / 2;
 }
 cyl(.008, .008, 1.4, C.espresso, 0, 3.35, -1, scene, 6);
-add(new THREE.ConeGeometry(.36, .32, 32, 1, true), mat(C.terra, { side: THREE.DoubleSide }), 0, 2.5, -1).castShadow = false;
+add(new THREE.ConeGeometry(.36, .32, 32, 1, true), brassMat({ side: THREE.DoubleSide }), 0, 2.5, -1).castShadow = false;
 add(new THREE.SphereGeometry(.07, 12, 8), new THREE.MeshBasicMaterial({ color: '#fff3d0', toneMapped: false }), 0, 2.38, -1).castShadow = false;
 
 /* ---------- Small bistro table ---------- */
@@ -350,16 +374,16 @@ box(.2, .05, .12, C.espresso, 0, 0, 0).position.set(-2.62, 3.98, 2.2);
 /* ---------- Adoption board ---------- */
 const ADOPTABLE = [['Mimi', '#d98a3d', null], ['Zitouna', '#8d8f94', null], ['Bsissa', '#efdcbc', '#d98a3d'], ['Harissa', '#c4742b', '#2b2524'], ['Loulou', '#2b2524', null], ['Fennec', '#fbf6ee', '#d9b48f']];
 const boardTex = canvasTex(640, 380, (g, w, h) => {
-  g.fillStyle = '#c9a271'; g.fillRect(0, 0, w, h);
-  for (let i = 0; i < 1400; i++) { g.fillStyle = `rgba(90,55,25,${Math.random() * .25})`; g.fillRect(Math.random() * w, Math.random() * h, 2, 2); }
+  g.fillStyle = '#e6ddcb'; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 1400; i++) { g.fillStyle = `rgba(60,60,45,${Math.random() * .18})`; g.fillRect(Math.random() * w, Math.random() * h, 2, 2); }
   g.fillStyle = C.espresso; g.font = 'italic 600 46px Fraunces, Georgia, serif'; g.fillText('Adopt me!', 30, 56);
-  g.font = '600 18px "DM Sans", sans-serif'; g.fillStyle = '#5a3a22'; g.fillText('Vaccinated · neutered · socialized', 270, 50);
+  g.font = '600 18px "DM Sans", sans-serif'; g.fillStyle = '#6d675c'; g.fillText('Vaccinated · neutered · socialized', 270, 50);
   ADOPTABLE.forEach(([name, fur, patch], i) => {
     const col = i % 3, row = Math.floor(i / 3);
     const x = 40 + col * 200, y = 80 + row * 148;
     g.save(); g.translate(x + 75, y + 65); g.rotate((i % 2 ? 1 : -1) * .04 * (1 + col * .5));
     g.fillStyle = '#fffdf8'; g.shadowColor = 'rgba(0,0,0,.25)'; g.shadowBlur = 6; g.fillRect(-75, -65, 150, 132); g.shadowBlur = 0;
-    g.fillStyle = i % 2 ? '#dfe6f5' : '#f3e2cf'; g.fillRect(-65, -57, 130, 88);
+    g.fillStyle = i % 2 ? '#dbe5df' : '#efe4d6'; g.fillRect(-65, -57, 130, 88);
     drawCatFace(g, 0, -10, 28, fur, fur === '#2b2524' ? '#e8b44a' : '#2a1a14', patch);
     g.fillStyle = C.espresso; g.font = '600 20px "DM Sans", sans-serif'; g.textAlign = 'center'; g.fillText(name, 0, 55);
     g.fillStyle = C.terra; g.beginPath(); g.arc(0, -62, 7, 0, Math.PI * 2); g.fill();
@@ -373,8 +397,8 @@ wbFace.position.z = .027; wb.add(wbFace);
 
 /* ---------- Grooming station ---------- */
 const pegTex = canvasTex(512, 384, (g, w, h) => {
-  g.fillStyle = '#e8d3b4'; g.fillRect(0, 0, w, h);
-  g.fillStyle = '#b8966d';
+  g.fillStyle = '#e3dccd'; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#a89a80';
   for (let x = 16; x < w; x += 32) for (let y = 16; y < h; y += 32) { g.beginPath(); g.arc(x, y, 4, 0, Math.PI * 2); g.fill(); }
 });
 const peg = new THREE.Group(); peg.position.set(4.95, 1.95, -1.5); peg.rotation.y = -Math.PI / 2; scene.add(peg);
@@ -407,7 +431,7 @@ box(3.12, .06, .8, C.espresso, 0, 1.03, .02, bar);
 box(3.0, .08, .66, C.espresso, 0, .04, 0, bar);
 // espresso machine
 box(.64, .42, .42, mat(C.steel, { metalness: .6, roughness: .3 }), .5, 1.27, -.05, bar);
-box(.64, .1, .02, C.terra, .5, 1.42, .17, bar);
+box(.64, .1, .02, brassMat(), .5, 1.42, .17, bar);
 for (const dx of [-.15, .15]) cyl(.035, .035, .08, C.espresso, .5 + dx, 1.12, .16, bar, 12);
 box(.5, .03, .2, C.espresso, .5, 1.075, .2, bar);
 for (const dx of [-.18, -.06, .06, .18]) cyl(.035, .03, .06, C.cream, .5 + dx, 1.51, -.05, bar, 12);
@@ -425,7 +449,7 @@ const jar = cyl(.06, .06, .14, glassMat, 1.35, 1.13, .15, bar); jar.castShadow =
 for (let i = 0; i < 4; i++) cyl(.04, .032, .05, C.cream, 1.35, 1.09 + i * .035, -.15, bar, 12);
 // menu board
 const menuTex = canvasTex(640, 384, (g, w, h) => {
-  g.fillStyle = '#2b2420'; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#1d1816'; g.fillRect(0, 0, w, h);
   g.strokeStyle = C.tan; g.lineWidth = 3; g.strokeRect(14, 14, w - 28, h - 28);
   g.fillStyle = C.cream; g.font = 'italic 600 52px Fraunces, serif'; g.textAlign = 'center'; g.fillText('Menu', w / 2, 74);
   g.textAlign = 'left'; g.font = '500 24px "DM Sans", sans-serif';
@@ -434,37 +458,37 @@ const menuTex = canvasTex(640, 384, (g, w, h) => {
     g.fillStyle = 'rgba(246,236,220,.35)'; for (let x = 60 + g.measureText(n).width; x < w - 150; x += 10) g.fillRect(x, y - 6, 3, 3);
     g.fillStyle = C.tan; g.textAlign = 'right'; g.fillText(p + ' TND', w - 50, y); g.textAlign = 'left';
   });
-  g.fillStyle = C.terra; g.fillRect(40, h - 72, w - 80, 40);
+  g.fillStyle = C.terra; g.fillRect(40, h - 72, w - 80, 40); g.strokeStyle = C.tan; g.lineWidth = 2; g.strokeRect(40, h - 72, w - 80, 40);
   g.fillStyle = C.cream; g.font = '700 20px "DM Sans", sans-serif'; g.textAlign = 'center'; g.fillText('PLAY SESSION WITH THE CATS · 10 TND', w / 2, h - 45);
 });
-box(2.05, 1.25, .04, C.woodDark, 2.1, 2.2, -4.99);
+box(2.05, 1.25, .04, brassMat(), 2.1, 2.2, -4.99);
 const menu = new THREE.Mesh(new THREE.PlaneGeometry(1.95, 1.17), new THREE.MeshBasicMaterial({ map: menuTex }));
 menu.position.set(2.1, 2.2, -4.965); scene.add(menu);
 // neon logo
 const neonTex = canvasTex(640, 170, (g, w, h) => {
   g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '600 112px Fraunces, serif';
-  g.shadowColor = '#ffb07a'; g.shadowBlur = 30; g.fillStyle = '#ffe8d2';
+  g.shadowColor = '#f0cf8a'; g.shadowBlur = 30; g.fillStyle = '#fff4dc';
   g.fillText('katkafi', w / 2, h / 2); g.shadowBlur = 10; g.fillText('katkafi', w / 2, h / 2);
 });
 const neon = new THREE.Mesh(new THREE.PlaneGeometry(2.1, .56), new THREE.MeshBasicMaterial({ map: neonTex, transparent: true, toneMapped: false, depthWrite: false }));
 neon.position.set(2.1, 3.38, -4.98); scene.add(neon);
-const neonLight = new THREE.PointLight('#ffb07a', 2.4, 4, 2); neonLight.position.set(2.1, 3.3, -4.5); scene.add(neonLight);
+const neonLight = new THREE.PointLight('#f3d398', 2.4, 4, 2); neonLight.position.set(2.1, 3.3, -4.5); scene.add(neonLight);
 // pendant lights over the bar
 for (const x of [1.2, 2.1, 3.0]) {
   cyl(.006, .006, 1.0, C.espresso, x, 3.5, -4.2, scene, 6);
-  add(new THREE.ConeGeometry(.16, .18, 24, 1, true), mat(C.blue, { side: THREE.DoubleSide }), x, 2.95, -4.2).castShadow = false;
+  add(new THREE.ConeGeometry(.16, .18, 24, 1, true), brassMat({ side: THREE.DoubleSide }), x, 2.95, -4.2).castShadow = false;
   add(new THREE.SphereGeometry(.04, 10, 8), new THREE.MeshBasicMaterial({ color: '#fff3d0', toneMapped: false }), x, 2.88, -4.2).castShadow = false;
 }
-const barLight = new THREE.PointLight('#ffd59a', 3, 5, 2); barLight.position.set(2.1, 2.7, -4.0); scene.add(barLight);
+const barLight = new THREE.PointLight('#ffe0b0', 3, 5, 2); barLight.position.set(2.1, 2.7, -4.0); scene.add(barLight);
 
 /* ---------- Cat tree ---------- */
 const tree = new THREE.Group(); tree.position.set(-4.15, 0, .9); scene.add(tree);
-const carpet = mat('#cfa77c', { roughness: 1 }), sisal = mat('#c49a62', { roughness: 1 });
+const carpet = mat('#cfc4ae', { roughness: 1 }), sisal = mat('#b49a6c', { roughness: 1 });
 box(.95, .08, .95, carpet, 0, .04, 0, tree);
 cyl(.06, .06, 1.9, sisal, -.2, 1.0, -.2, tree, 12); cyl(.06, .06, 1.1, sisal, .25, .6, .25, tree, 12);
 cyl(.34, .34, .06, carpet, -.2, 1.95, -.2, tree, 28); cyl(.3, .3, .06, carpet, .25, 1.15, .25, tree, 28);
 box(.5, .45, .5, carpet, .2, .305, -.2, tree);
-const hole = new THREE.Mesh(new THREE.CircleGeometry(.12, 24), new THREE.MeshBasicMaterial({ color: '#3a2418' }));
+const hole = new THREE.Mesh(new THREE.CircleGeometry(.12, 24), new THREE.MeshBasicMaterial({ color: '#1f1c18' }));
 hole.position.set(.451, .3, -.2); hole.rotation.y = Math.PI / 2; tree.add(hole);
 const toy = new THREE.Group(); toy.position.set(.45, 1.12, .3); tree.add(toy);
 cyl(.004, .004, .35, C.cream, 0, -.175, 0, toy, 4); sphere(.04, C.terra, 0, -.37, 0, toy);
@@ -479,7 +503,7 @@ const glass = new THREE.MeshStandardMaterial({ color: '#cfeae6', transparent: tr
 for (const z of [-.55, .55]) { const g = box(1.05, 2.3, .02, glass, 0, 1.25, z, booth); g.castShadow = false; }
 const front = box(.02, 2.3, 1.05, glass, -.55, 1.25, 0, booth); front.castShadow = false;
 for (const y of [.6, 1.2, 1.8]) { box(.03, .04, 1.05, bm, -.55, y, 0, booth); box(1.05, .04, .03, bm, 0, y, .55, booth); box(1.05, .04, .03, bm, 0, y, -.55, booth); }
-const boothSign = new THREE.Mesh(new THREE.PlaneGeometry(.95, .22), new THREE.MeshBasicMaterial({ map: signTex('Say hello', C.espresso, '#ffe3c2', 256, 60, '600 34px Fraunces, serif'), toneMapped: false }));
+const boothSign = new THREE.Mesh(new THREE.PlaneGeometry(.95, .22), new THREE.MeshBasicMaterial({ map: signTex('Say hello', C.espresso, '#e9cf98', 256, 60, '600 34px Fraunces, serif'), toneMapped: false }));
 boothSign.position.set(-.635, 2.6, 0); boothSign.rotation.y = -Math.PI / 2; booth.add(boothSign);
 box(.08, .32, .2, C.espresso, .5, 1.5, 0, booth); box(.07, .06, .26, C.espresso, .45, 1.72, 0, booth);
 cyl(.2, .2, .05, C.tan, .1, .6, 0, booth); cyl(.03, .03, .55, C.espresso, .1, .3, 0, booth, 8);
@@ -534,13 +558,41 @@ function photo(src, aspect, h, x, y, z, rotY, frameCol = C.espresso, tilt = 0) {
   const pic = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat('#ffffff', { map: tex, roughness: .6 })); pic.position.z = .023; inner.add(pic);
 }
 const L = Math.PI / 2, R = -Math.PI / 2;
-photo('wall/w8.jpg', .673, 1.05, 4.05, 2.35, -4.97, 0, C.woodDark, .02);   // back wall, right of the menu
+photo('wall/w8.jpg', .673, .95, -4.95, 2.5, .35, L, C.brass, .02);         // left wall, between the board and the cat tree
 photo('wall/w11.jpg', 1.016, .52, .1, 2.5, -4.97, 0, C.terra, -.04);       // back wall, between window and menu
 photo('wall/w10.jpg', .563, .72, .76, 2.22, -4.97, 0, C.espresso, .03);    // milky kitten, right next to the menu board
 photo('wall/w6.jpg', .564, .95, -4.95, 2.45, -3.95, L, C.cream, .03);      // left wall, near the window corner
 photo('wall/w7.jpg', .75, .82, -4.95, 2.5, 1.95, L, C.woodDark, -.03);     // left wall, above the cat tree
 photo('wall/w9.jpg', .707, .85, 4.95, 2.4, -3.45, R, C.blue, .03);         // right wall, by the coffee bar
 photo('wall/w12.jpg', 1.0, .6, 4.95, 2.35, 3.1, R, C.terra, .04);         // right wall, behind the phone booth
+
+/* ---------- Teaser ad: our video, playing silently in a brass frame beside the menu ---------- */
+const teaserVid = document.createElement('video');
+Object.assign(teaserVid, { src: 'katkafi-teaser.mp4', muted: true, loop: true, playsInline: true, preload: 'auto' });
+teaserVid.setAttribute('muted', ''); teaserVid.setAttribute('playsinline', '');
+const teaserAd = new THREE.Group(); teaserAd.position.set(3.98, 2.2, -4.97); scene.add(teaserAd);
+const TW = .7, TH = TW * 16 / 9;
+box(TW + .1, TH + .1, .04, brassMat(), 0, 0, 0, teaserAd);
+box(TW + .02, TH + .02, .01, C.espresso, 0, 0, .024, teaserAd);
+const teaserPoster = texLoader.load('katkafi-teaser-poster.jpg'); teaserPoster.colorSpace = THREE.SRGBColorSpace;
+const teaserTex = new THREE.VideoTexture(teaserVid); teaserTex.colorSpace = THREE.SRGBColorSpace;
+const teaserScreen = new THREE.Mesh(new THREE.PlaneGeometry(TW, TH), new THREE.MeshBasicMaterial({ map: teaserPoster, toneMapped: false }));
+teaserScreen.position.z = .031; teaserScreen.userData.teaser = true; teaserAd.add(teaserScreen);
+teaserVid.addEventListener('playing', () => { teaserScreen.material.map = teaserTex; teaserScreen.material.needsUpdate = true; }, { once: true });
+const playBadge = new THREE.Mesh(new THREE.PlaneGeometry(.2, .2), new THREE.MeshBasicMaterial({ transparent: true, toneMapped: false, depthWrite: false,
+  map: canvasTex(128, 128, (g, w, h) => {
+    g.fillStyle = 'rgba(15,24,20,.55)'; g.beginPath(); g.arc(64, 64, 58, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = '#d9b877'; g.lineWidth = 4; g.stroke();
+    g.fillStyle = '#f2ead8'; g.beginPath(); g.moveTo(52, 40); g.lineTo(90, 64); g.lineTo(52, 88); g.closePath(); g.fill();
+  }) }));
+playBadge.position.z = .035; playBadge.userData.teaser = true; teaserAd.add(playBadge);
+const teaserLabel = new THREE.Mesh(new THREE.PlaneGeometry(.78, .11), new THREE.MeshBasicMaterial({ transparent: true, toneMapped: false,
+  map: canvasTex(512, 72, (g, w, h) => {
+    g.fillStyle = '#d9b877'; g.font = '600 30px "DM Sans", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.letterSpacing = '6px'; g.fillText('NOW SHOWING', w / 2, h / 2);
+  }) }));
+teaserLabel.position.set(0, -TH / 2 - .13, .01); teaserLabel.userData.teaser = true; teaserAd.add(teaserLabel);
+const teaserGlow = new THREE.PointLight('#ffe6b8', .9, 1.8, 2); teaserGlow.position.set(3.98, 2.3, -4.5); scene.add(teaserGlow);
 
 /* ================= Cats ================= */
 const CAT_COATS = {
@@ -751,13 +803,13 @@ function animateChars(t) {
 }
 
 /* ================= Lights ================= */
-scene.add(new THREE.HemisphereLight('#fff4e0', '#6b4430', 1.05));
-const sun = new THREE.DirectionalLight('#ffe7c2', 2.0);
+scene.add(new THREE.HemisphereLight('#fff6e8', '#3a2a22', 1.25));
+const sun = new THREE.DirectionalLight('#fff0d8', 2.0);
 sun.position.set(-1.6, 3.6, -4.6); sun.target.position.set(.8, 0, 1); scene.add(sun, sun.target);
 sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
 Object.assign(sun.shadow.camera, { left: -7, right: 7, top: 7, bottom: -7, near: .1, far: 14 });
 sun.shadow.bias = -.0004; sun.shadow.normalBias = .02;
-const lamp = new THREE.PointLight('#ffc77d', 5, 7, 2); lamp.position.set(0, 2.32, -1); scene.add(lamp);
+const lamp = new THREE.PointLight('#ffd9a6', 5, 7, 2); lamp.position.set(0, 2.32, -1); scene.add(lamp);
 const fill = new THREE.PointLight('#ffe9cc', 2.5, 10, 2); fill.position.set(0, 3.5, 3); scene.add(fill);
 
 clearInterval(fakeLoad);
@@ -801,7 +853,7 @@ canvas.addEventListener('wheel', e => { if (entered && !focused) { e.preventDefa
 
 /* ================= Tapping cats and people ================= */
 const raycaster = new THREE.Raycaster(), ndc = new THREE.Vector2();
-const tappable = [...cats.map(c => c.root), ...chars.map(c => c.mesh)];
+const tappable = [...cats.map(c => c.root), ...chars.map(c => c.mesh), teaserAd];
 const MEOWS = ['Meow!', 'Mrrp?', 'Purrr…', 'Mew!', 'Prrrt!'];
 function handleTap(e) {
   if (!entered || focused) return;
@@ -810,7 +862,8 @@ function handleTap(e) {
   const hit = raycaster.intersectObjects(tappable, true)[0];
   if (!hit) return;
   const cat = hit.object.userData.cat, person = hit.object.userData.person;
-  if (cat) {
+  if (hit.object.userData.teaser) openTeaser();
+  else if (cat) {
     cat.hopAt = clock.elapsedTime;
     const i = speakers.findIndex(s => s.cat === cat);
     if (i >= 0) showBubble(i, cat.pose === 'sleep' ? 'zzz… mrr?' : MEOWS[Math.floor(Math.random() * MEOWS.length)], 1.6);
@@ -861,7 +914,37 @@ function unfocus() {
   document.body.classList.remove('focused');
 }
 $('.back').addEventListener('click', unfocus);
-addEventListener('keydown', e => { if (e.key === 'Escape') unfocus(); });
+
+/* ================= Teaser lightbox ================= */
+const tz = $('#teaser'), tzVideo = $('#teaser video');
+function openTeaser() {
+  tz.classList.add('open'); tz.setAttribute('aria-hidden', 'false');
+  teaserVid.pause();
+  tzVideo.currentTime = 0; tzVideo.muted = false;
+  tzVideo.play().catch(() => {});
+  setTimeout(() => $('.tz-close').focus({ preventScroll: true }), 200);
+}
+function closeTeaser() {
+  if (!tz.classList.contains('open')) return false;
+  tz.classList.remove('open'); tz.setAttribute('aria-hidden', 'true');
+  tzVideo.pause(); teaserVid.play().catch(() => {});
+  return true;
+}
+$('.tz-close').addEventListener('click', closeTeaser);
+tz.addEventListener('click', e => { if (e.target === tz) closeTeaser(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !closeTeaser()) unfocus(); });
+// a hotspot for the ad, and a pointer cursor when hovering it
+const teaserSpot = document.createElement('button');
+teaserSpot.className = 'hotspot teaser-spot'; teaserSpot.setAttribute('aria-label', 'Watch our teaser');
+teaserSpot.innerHTML = '<span class="dot"></span><span class="label">▶ Watch our teaser</span>';
+teaserSpot.addEventListener('click', openTeaser); hsWrap.appendChild(teaserSpot);
+const TEASER_DOT = new THREE.Vector3(3.98 + .45, 2.2 + .55, -4.9);
+canvas.addEventListener('pointermove', e => {
+  if (pointers.size || !entered || focused) { canvas.style.cursor = ''; return; }
+  ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1);
+  raycaster.setFromCamera(ndc, camera);
+  canvas.style.cursor = raycaster.intersectObject(teaserAd, true).length ? 'pointer' : '';
+});
 
 const v = new THREE.Vector3();
 function updateHotspots() {
@@ -873,6 +956,9 @@ function updateHotspots() {
     el.hidden = false;
     el.style.transform = `translate(${(v.x + 1) / 2 * w - 9}px, ${(1 - v.y) / 2 * h - 9}px)`;
   });
+  v.copy(TEASER_DOT).project(camera);
+  teaserSpot.hidden = v.z > 1 || Math.abs(v.x) > 1.1 || Math.abs(v.y) > 1.1;
+  if (!teaserSpot.hidden) teaserSpot.style.transform = `translate(${(v.x + 1) / 2 * w - 9}px, ${(1 - v.y) / 2 * h - 9}px)`;
 }
 
 /* ================= Speech bubbles ================= */
@@ -916,7 +1002,8 @@ function finishLoading() {
     if (progress >= 100) { clearInterval(id); setTimeout(() => { $('.loader').hidden = true; enterBtn.hidden = false; enterBtn.focus(); }, 250); }
   }, 30);
 }
-enterBtn.addEventListener('click', () => { entered = true; document.body.classList.add('entered'); });
+enterBtn.addEventListener('click', () => { entered = true; document.body.classList.add('entered'); teaserVid.play().catch(() => {}); });
+teaserVid.play().catch(() => {}); // muted autoplay usually works right away
 
 /* ================= Loop ================= */
 function resize() {
