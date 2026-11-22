@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Katkafi Cat Café</title>
 <meta name="description" content="Concept demo: an explorable 3D cat café for Katkafi, with rescue, care, coffee and matchmaking.">
+<link rel="icon" href="katkafi-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +40,7 @@
   .top { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; pointer-events: none; z-index: 3; }
   .top > * { pointer-events: auto; }
   .logo { display: flex; align-items: center; gap: 10px; font-family: Fraunces, serif; font-weight: 600; font-size: 26px; letter-spacing: -.01em; text-shadow: 0 2px 10px rgba(0,0,0,.35); }
-  .logo img { width: 42px; height: 42px; background: var(--cream); border-radius: 12px; padding: 4px; }
+  .logo img { width: 46px; height: 42px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
   .join { background: var(--blue); color: var(--cream); border: 1px solid var(--tan); border-radius: 999px; padding: 11px 20px; font-weight: 600; font-size: 14px; cursor: pointer; box-shadow: 0 3px 0 #0f2a21; transition: transform .15s, box-shadow .15s; }
   .join:hover { transform: translateY(-1px); box-shadow: 0 4px 0 #0f2a21; }
   .join:active { transform: translateY(2px); box-shadow: 0 1px 0 #0f2a21; }
@@ -91,7 +92,7 @@
   /* ---------- Gate ---------- */
   #gate { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16px; background: rgba(15,24,20,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: opacity 1s ease, visibility 1s; }
   body.entered #gate { opacity: 0; visibility: hidden; }
-  .mascot { width: 150px; height: 150px; background: var(--cream); border-radius: 40px; padding: 14px; margin-bottom: 22px; animation: peek 3.2s ease-in-out infinite; }
+  .mascot { width: 170px; height: 154px; object-fit: contain; filter: drop-shadow(0 0 28px rgba(217,123,196,.35)); margin-bottom: 22px; animation: peek 3.2s ease-in-out infinite; }
   .welcome { font-family: Fraunces, serif; font-style: italic; font-size: clamp(24px, 4vw, 34px); margin: 0; opacity: .85; }
   #gate h1 { font-family: Fraunces, serif; font-weight: 700; font-size: clamp(64px, 12vw, 128px); line-height: .95; margin: 2px 0 12px; letter-spacing: -.03em; }
   .tagline { margin: 0; max-width: 420px; font-size: 16px; line-height: 1.5; color: var(--tan); }
@@ -151,7 +152,7 @@
   @media (max-width: 820px) {
     .top { padding: 12px 16px; }
     .logo { font-size: 21px; }
-    .logo img { width: 34px; height: 34px; }
+    .logo img { width: 38px; height: 34px; }
     .join { padding: 9px 14px; font-size: 13px; }
     .spots-nav { display: none; }
     .hint { bottom: 18px; width: calc(100% - 32px); }
@@ -159,7 +160,7 @@
     #panel h2 { font-size: 31px; }
     .kicker { margin-top: 20px; }
     .demo-note { display: none; }
-    .mascot { width: 120px; height: 120px; border-radius: 32px; }
+    .mascot { width: 136px; height: 124px; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
@@ -175,7 +176,7 @@
   <div id="hotspots"></div>
 
   <header class="top ui">
-    <div class="logo"><img src="katkafi-mascot.png" alt="">katkafi</div>
+    <div class="logo"><img src="katkafi-logo.png" alt="">katkafi</div>
     <button class="join" data-open="adopt">Adopt a cat</button>
   </header>
 
@@ -188,7 +189,7 @@
   </aside>
 
   <section id="gate">
-    <img class="mascot" src="katkafi-mascot.png" alt="Katkafi mascot: a shy cat hiding behind its paw">
+    <img class="mascot" src="katkafi-logo.png" alt="Katkafi logo: a smiling halftone cat">
     <p class="welcome">Welcome to</p>
     <h1>katkafi</h1>
     <p class="tagline">Rescue, care, coffee and matchmaking for cats, all under one roof in Tunis.</p>
@@ -585,10 +586,10 @@ const posterTex = (bg, fur, patch, text) => canvasTex(256, 320, (g, W, H) => {
   drawCatFace(g, W / 2, H * .42, 70, fur, fur === '#2b2524' ? '#e8b44a' : '#2a1a14', patch);
   g.fillStyle = C.cream; g.font = 'italic 600 30px Fraunces, serif'; g.textAlign = 'center'; g.fillText(text, W / 2, H - 40);
 });
-const mascotTex = texLoader.load('katkafi-mascot.png'); mascotTex.colorSpace = THREE.SRGBColorSpace;
-const mascotPoster = canvasTex(8, 8, (g) => { g.fillStyle = C.cream; g.fillRect(0, 0, 8, 8); });
+const mascotTex = texLoader.load('katkafi-logo.png'); mascotTex.colorSpace = THREE.SRGBColorSpace;
+const mascotPoster = canvasTex(8, 8, (g) => { g.fillStyle = '#d97bc4'; g.fillRect(0, 0, 8, 8); }); // the logo's pink
 art(4.95, 2.35, .3, -Math.PI / 2, .8, .8, mascotPoster);
-const mascotFace = new THREE.Mesh(new THREE.PlaneGeometry(.7, .7), new THREE.MeshBasicMaterial({ map: mascotTex, transparent: true }));
+const mascotFace = new THREE.Mesh(new THREE.PlaneGeometry(.7, .7 * 296 / 326), new THREE.MeshBasicMaterial({ map: mascotTex, transparent: true }));
 mascotFace.position.set(4.925, 2.35, .3); mascotFace.rotation.y = -Math.PI / 2; scene.add(mascotFace);
 art(-4.95, 2.4, 3.0, Math.PI / 2, .7, .875, posterTex(C.blue, '#d98a3d', null, 'adopt'));
 art(-3.6, 2.4, -4.97, 0, .6, .75, posterTex(C.terra, '#fbf6ee', '#d9b48f', 'purr'));
